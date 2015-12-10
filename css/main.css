@@ -1,56 +1,79 @@
+/*
+ *	DownloadMyProgram
+ *	https://github.com/izzaldin2001/DownloadMyProgram
+*/
+
 body {
 	background-color: gray;
-	color: white;
-	text-align: center;
+	color: black;
 }
 
 #header {
-	width: 50%;
-	margin: 10px auto;
-	padding: 10px;
-	border: 1px solid white;
-	background-color: black;
+	padding: 15px;
+	float: left;
+	background-color: white;
+	width: 95%;
+	border-right: 5px solid black;
+	border-bottom: 5px solid black;
 }
 
-#header ul {
-	list-style: none;
-}
-
-#header ul li {
+#header h1, p {
 	display: inline-block;
-	margin-right: 10px;
-	padding: 10px;
-	border: 1px solid white;
-	border-radius: 10px;
-	background-color: gray;
 }
 
-#container {
-	width: 50%;
-	margin: 10px auto;
-	padding: 10px;
-	border: 1px solid white;
-	background-color: black;
+#header #nav {
+	float: right;
+	font-size: 25px;
+}
+
+#header #nav ul li {
+	display: inline-block;
+}
+
+#header #nav ul li:first-child:after {
+	content: " | ";
+}
+
+#body {
+	padding: 15px;
+	float: left;
+	background-color: white;
+	width: 95%;
+	margin-top: 10px;
+	border-right: 5px solid black;
+	border-bottom: 5px solid black;
 }
 
 #footer {
-	width: 50%;
-	margin: 10px auto;
-	padding: 10px;
-	border: 1px solid white;
-	background-color: black;
+	padding: 15px;
+	float: left;
+	background-color: white;
+	width: 95%;
+	margin-top: 10px;
+	border-right: 5px solid black;
+	border-bottom: 5px solid black;
+}
+
+#form label, input, textarea {
+	display: block;
+	margin: 15px;
+}
+
+#form input[type="submit"] {
+	padding: 5px;
+	background-color: white;
+	border: 1px solid black;
+}
+
+img {
+	border:1px solid black;
+	border-radius: 5px;
 }
 
 a {
-	color: white;
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-input, textarea {
-	padding: 5px;
-	border-radius: 5px;
+.clear {
+	clear: both;
 }

@@ -54,12 +54,14 @@
 
 			?>
 		</p>
-		<ul>
-			<li><a href="index.php">Home</a></li>
-			<li><a href="download.php">Download</a></li>
-		</ul>
+		<div id="nav">
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="download.php">Download</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="container">
+	<div id="body">
 			<?php
 
 				// Connect to DB
@@ -87,7 +89,7 @@
 				$query = mysqli_query($con, $sql);
 				$array = mysqli_fetch_array($query);
 
-				echo $array["website_name"] . ", " . "<a href=\"https://www.facebook.com/Izzaldin2001\">Izzaldin Samir</a>.";
+				echo $array["website_name"] . ".";
 
 
 			?>

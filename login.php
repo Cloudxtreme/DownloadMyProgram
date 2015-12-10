@@ -54,47 +54,53 @@
 
 			?>
 		</p>
-		<ul>
-			<li><a href="index.php">Home</a></li>
-			<li><a href="download.php">Download</a></li>
-		</ul>
+		<div id="nav">
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="download.php">Download</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="container">
-		<form action="login.php" method="post">
-			<?php
+	<div id="body">
+		<div id="form">
+			<form action="login.php" method="post">
+				<?php
 
-				// Do all things after click on login button
-				if (isset($_POST["login"])) {
+					// Do all things after click on login button
+					if (isset($_POST["login"])) {
 
-					// Username and Password in config.php
-					require("config.php");
+						// Username and Password in config.php
+						require("config.php");
 
-					// Collect data from input
-					// NOTE: i char mean input
-					$username_i = strip_tags($_POST["username"]);
-					$password_i = strip_tags($_POST["password"]);
+						// Collect data from input
+						// NOTE: i char mean input
+						$username_i = strip_tags($_POST["username"]);
+						$password_i = strip_tags($_POST["password"]);
 
-					// Check if input equals data in config.php
-					if ($username_i == $username && $password_i == $password) {
+						// Check if input equals data in config.php
+						if ($username_i == $username && $password_i == $password) {
 
-						echo "Login complete, <a href=\"admin.php\">Admin page.</a>";
-						session_start();
-						$_SESSION["login"] = "yes";
+							echo "Login complete, <a href=\"admin.php\">Admin page.</a>";
+							session_start();
+							$_SESSION["login"] = "yes";
 
-					} else {
+						} else {
 
-						echo "Login data is incorrect try again.";
-						session_start();
-						$_SESSION["login"] = "no";
+							echo "Login data is incorrect try again.";
+							session_start();
+							$_SESSION["login"] = "no";
+
+						}
 
 					}
-
-				}
-			?>
-			<br /><br />Username: <input type="text" name="username" /><br /><br />
-			Password: <input type="password" name="password" /><br /><br />
-			<input type="submit" name="login" value="Login" />
-		</form>
+				?>
+				<label for="username">Username:</label>
+				<input type="text" name="username" />
+				<label for="password">Password:</label>
+				<input type="password" name="password" />
+				<input type="submit" name="login" value="Login" />
+			</form>
+		</div>
 	</div>
 	<div id="footer">
 		<p>Copyright <?php echo date("Y"); ?> 
@@ -108,7 +114,7 @@
 				$query = mysqli_query($con, $sql);
 				$array = mysqli_fetch_array($query);
 
-				echo $array["website_name"] . ", " . "<a href=\"https://www.facebook.com/Izzaldin2001\">Izzaldin Samir</a>.";
+				echo $array["website_name"] . ".";
 
 
 			?>

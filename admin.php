@@ -71,12 +71,14 @@ if (isset($_SESSION)) {
 
 			?>
 		</p>
-		<ul>
-			<li><a href="index.php">Home</a></li>
-			<li><a href="download.php">Download</a></li>
-		</ul>
+		<div id="nav">
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="download.php">Download</a></li>
+			</ul>
+		</div>
 	</div>
-	<div id="container">
+	<div id="body">
 		<?php
 
 			// Do all things after click on update button.
@@ -99,69 +101,71 @@ if (isset($_SESSION)) {
 			}
 
 		?>
-		<form action="admin.php" method="post">
-			<br /><br />Website name (Program name):
-			<input type="text" name="website_name" value="<?php
+		<div id="form">
+			<form action="admin.php" method="post">
+				<label for="website_name">Website name (Program name):</label>
+				<input type="text" name="website_name" value="<?php
 
-				// Connect to DB
-				require("config.php");
+					// Connect to DB
+					require("config.php");
 
-				// Extract Website name
-				$sql = "SELECT website_name FROM admin";
-				$query = mysqli_query($con, $sql);
-				$array = mysqli_fetch_array($query);
+					// Extract Website name
+					$sql = "SELECT website_name FROM admin";
+					$query = mysqli_query($con, $sql);
+					$array = mysqli_fetch_array($query);
 
-				echo $array["website_name"];
-
-
-			?>" /><br /><br />
-			Website description (Program description):<br />
-			<textarea name="website_description" rows="10" cols="30"><?php
-
-				// Connect to DB
-				require("config.php");
-
-				// Extract Website description
-				$sql = "SELECT website_description FROM admin";
-				$query = mysqli_query($con, $sql);
-				$array = mysqli_fetch_array($query);
-
-				echo $array["website_description"];
+					echo $array["website_name"];
 
 
-			?></textarea><br /><br />
-			Home page text (HTML):<br />
-			<textarea name="home" rows="10" cols="50"><?php
+				?>" />
+				<label for="website_description">Website description (Program description):</label>
+				<textarea name="website_description" rows="10" cols="30"><?php
 
-				// Connect to DB
-				require("config.php");
+					// Connect to DB
+					require("config.php");
 
-				// Extract Home page text
-				$sql = "SELECT home_page_text FROM admin";
-				$query = mysqli_query($con, $sql);
-				$array = mysqli_fetch_array($query);
+					// Extract Website description
+					$sql = "SELECT website_description FROM admin";
+					$query = mysqli_query($con, $sql);
+					$array = mysqli_fetch_array($query);
 
-				echo $array["home_page_text"];
-
-
-			?></textarea><br /><br />
-			Download page text (HTML):<br />
-			<textarea name="download" rows="10" cols="50"><?php
-
-				// Connect to DB
-				require("config.php");
-
-				// Extract Download page text
-				$sql = "SELECT download_page_text FROM admin";
-				$query = mysqli_query($con, $sql);
-				$array = mysqli_fetch_array($query);
-
-				echo $array["download_page_text"];
+					echo $array["website_description"];
 
 
-			?></textarea><br /><br />
-			<input type="submit" name="update" value="Update" />
-		</form>
+				?></textarea>
+				<label for="home">Home page text (HTML):</label>
+				<textarea name="home" rows="10" cols="50"><?php
+
+					// Connect to DB
+					require("config.php");
+
+					// Extract Home page text
+					$sql = "SELECT home_page_text FROM admin";
+					$query = mysqli_query($con, $sql);
+					$array = mysqli_fetch_array($query);
+
+					echo $array["home_page_text"];
+
+
+				?></textarea>
+				<label for="download">Download page text (HTML):</label>
+				<textarea name="download" rows="10" cols="50"><?php
+
+					// Connect to DB
+					require("config.php");
+
+					// Extract Download page text
+					$sql = "SELECT download_page_text FROM admin";
+					$query = mysqli_query($con, $sql);
+					$array = mysqli_fetch_array($query);
+
+					echo $array["download_page_text"];
+
+
+				?></textarea>
+				<input type="submit" name="update" value="Update" />
+			</form>
+		</div>
 	</div>
 	<div id="footer">
 		<p>Copyright <?php echo date("Y"); ?> 
