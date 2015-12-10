@@ -7,8 +7,7 @@ if (isset($_SESSION)) {
 	if ($_SESSION["login"] != "yes") {
 
 		$_SESSION["login"] = "no";
-		echo "Please login <a href=\"login.php\">here</a>.";
-		die;
+		header("Location: error.php");
 
 	}
 
