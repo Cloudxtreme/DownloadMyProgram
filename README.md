@@ -1,5 +1,6 @@
-# DownloadMyProgram - DMP (SCRIPT)
+# DownloadMyProgram - DMP
 
+- PHP programming language :)
 - Simple design
 - Edit your username and password of admin in config.php
 - Edit Database settings in config.php
